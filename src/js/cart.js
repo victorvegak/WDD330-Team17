@@ -30,7 +30,8 @@ function cartItemTemplate(item) {
     footerElement.classList.remove('hide');
     const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
-  } else {
+  }
+  else {
     footerElement.classList.add('hide');
   }
 
