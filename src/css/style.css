@@ -131,6 +131,18 @@ button {
   fill: gray;
 }
 
+/* backlog1: Empty Card Error-cart.html */
+
+.hide {
+  display: none;
+}
+
+.cart-footer {
+  text-align: right;
+  margin-top: 1rem;
+  font-size: 1.2em;
+  font-weight: bold;
+}
 /* End cart icon styles */
 
 .mission {
