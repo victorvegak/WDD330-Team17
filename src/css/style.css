@@ -169,6 +169,14 @@ button {
 }
 
 /* Styles for product lists */
+.discount-deal {
+  background-color: black;
+  color: white;
+  width: 7rem;
+  text-align: center;
+  font-weight: 700;
+}
+
 .product-card {
   flex: 1 1 45%;
   margin: 0.25em;
