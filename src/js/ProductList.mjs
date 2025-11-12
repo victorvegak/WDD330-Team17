@@ -23,7 +23,7 @@ export default class ProductList {
 
   async init() {
     // the dataSource will return a Promise...so you can use await to resolve it.
-      const list = await this.dataSource.getData();
+    const list = await this.dataSource.getData();    
     // next, render the list – ** future **
       this.renderList(list);
   }
@@ -34,25 +34,6 @@ export default class ProductList {
 
     // apply use new utility function instead of the commented code above
     renderListWithTemplate(productCardTemplate, this.listElement, list);
-  
-        // this.listElement.innerHTML = ''; // clear any old content
 
-        // list.forEach(product => {
-        //   const item = document.createElement('li');
-        //   item.classList.add('product-card');
-          
-        //   // Jm - Discount indicator-product listing
-        //   const isDiscounted = product.FinalPrice < product.SuggestedRetailPrice;
-        //   const discountPercent = isDiscounted
-        //   ? Math.round(((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100)
-        //   : 0;
-
-        //   item.innerHTML = `
-        //   <h3>${product.name}</h3>
-        //   <p>${product.description}</p>
-        //   <strong>$${product.price}</strong>
-        //   `;
-        //   this.listElement.appendChild(item);
-        // });
     }
 }
