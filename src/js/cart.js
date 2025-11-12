@@ -26,14 +26,14 @@ function cartItemTemplate(item) {
 }
 
   // If there are items, show total
-  if (cartItems.length > 0) {
-    footerElement.classList.remove('hide');
-    const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
-    totalElement.textContent = `Total: $${total.toFixed(2)}`;
-  }
-  else {
-    footerElement.classList.add('hide');
-  }
+  // if (cartItems.length > 0) {
+  //   footerElement.classList.remove('hide');
+  //   const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
+  //   totalElement.textContent = `Total: $${total.toFixed(2)}`;
+  // }
+  // else {
+  //   footerElement.classList.add('hide');
+  // }
 
 
 renderCartContents();
