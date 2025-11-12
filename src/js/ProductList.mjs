@@ -12,6 +12,7 @@ function productCardTemplate(product) {
     </li>
     `;
 }
+
 export default class ProductList {
   constructor(category, dataSource, listElement) {
     // You passed in this information to make the class as reusable as possible.
