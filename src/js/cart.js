@@ -1,5 +1,6 @@
 import { getLocalStorage } from "./utils.mjs";
 
+
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
@@ -24,16 +25,5 @@ function cartItemTemplate(item) {
 
   return newItem;
 }
-
-  // If there are items, show total
-  // if (cartItems.length > 0) {
-  //   footerElement.classList.remove('hide');
-  //   const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
-  //   totalElement.textContent = `Total: $${total.toFixed(2)}`;
-  // }
-  // else {
-  //   footerElement.classList.add('hide');
-  // }
-
 
 renderCartContents();
