@@ -94,6 +94,19 @@ p {
   margin-top: -1.7em;
 }
 
+.category-logos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-items: center;
+  text-align: center;
+  margin: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.category-logos a {
+  text-decoration: none;
+}
+
 /* utility classes */
 .highlight {
   color: var(--tertiary-color);
