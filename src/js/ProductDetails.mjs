@@ -40,7 +40,7 @@ function productDetailsTemplate(product) {
   productImage.alt = product.NameWithoutBrand;
 
   document.getElementById("discountDisplay").innerHTML = `${Math.round((1 - (product.FinalPrice / product.SuggestedRetailPrice)) * 100)}% OFF`;
-  document.getElementById("productPrice").textContent = product.FinalPrice;
+  document.getElementById("productPrice").innerHTML = `<span class="strike-through">$${product.SuggestedRetailPrice}</span>  |  $${product.FinalPrice}`;
   document.getElementById("productColor").textContent = product.Colors[0].ColorName;
   document.getElementById("productDesc").innerHTML = product.DescriptionHtmlSimple;
 
