@@ -7,13 +7,27 @@ function renderCartContents() {
     cartItems = [cartItems];
   }
 
+  const productList = document.querySelector(".product-list");
+  
+    if (!productList) {
+      console.error("no .product-list element found in cart.js")
+      return;
+    }
+    // If cart is empty
+    if (cartItems.length === 0) {
+      productList.innerHTML = `<li class="cart-empty">Your cart is empty.</li>`;
+      return;
+    }
+  
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  // document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  productList.innerHTML = htmlItems.join("");
 
   document.querySelectorAll(".qty-input").forEach(input => {
-  input.addEventListener("change", updateQuantity);
-  });
+    input.addEventListener("change", updateQuantity);
+    });
 }
+
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
