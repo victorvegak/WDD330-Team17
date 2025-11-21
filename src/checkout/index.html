@@ -26,7 +26,7 @@
 
       <div class="cart">
         <a href="cart/">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50">
             <path
               d="M18.9 32.6c1.1 2.4 2.5 3.3 5.4 3.3 1.6 0 3.6-0.3 5.9-0.6 3.2-0.5 6.9-1 11.2-1 2.1 0 4.3 0.1 6.4 0.3 2.1 0.1 4.2 0.3 6.1 0.3 3.2 0 5.2-0.4 5.9-1.2 2.7-2.7 2.8-8.8 2.9-14.6 0.1-6.7 0.2-14.5 4.6-18.7 -0.5 0-1 0-1.6 0 -14.2 0-37.5 0-41.1 0C15.6 6.2 14.9 23.6 18.9 32.6z"
             />
@@ -62,6 +62,43 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
+      <div id="order-summary">
+
+      </div>
+      <form id="checkout-form">
+        <fieldset>
+          <legend>Personal Info</legend>
+          <label>First Name<input type="text" id="fname" placeholder="John" required></label>
+          <label>Last Name<input type="text" id="lname" placeholder="Smith" required></label>
+          <label>Street Address<input type="text" id="street" placeholder="1234 Rocky Road" required></label>
+          <label>City<input type="text" id="city" placeholder="1234 Rocky Road" required></label>
+          <label>State<input type="text" id="state" placeholder="Ohio" required></label>
+          <label>Zipcode<input type="text" id="zip" placeholder="44444" required></label>          
+        </fieldset>
+        <fieldset>
+          <legend>Payment Information</legend>
+          <label>Card Number<input type="text" id="card-number" required></label>
+          <label>Expiration Date<input type="text" id="card-expiration" required></label>
+          <label>Security Code<input type="text" id="security-code" required></label>
+        </fieldset>
+        <fieldset class="checkout-summary">
+          <legend>Order Summary</legend>
+        
+          <div class="order__summary">
+            <div>Items</div>
+            <div id="num-items"></div>
+            <div>Subtotal</div>
+            <div id="cartTotal"></div>
+            <div>Tax</div>
+            <div id="tax"></div>
+            <div>Shipping</div>
+            <div id="shipping"></div>
+            <div>Total</div>
+            <div id="orderTotal"></div>
+          </div>
+        </fieldset>
+        <button type="submit">Complete Purchase</button>
+      </form>
     </main>
 
     <footer>&copy;NOT a real business</footer>
