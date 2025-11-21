@@ -64,3 +64,5 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerIndex);
   renderWithTemplate(footerTemplate, footerIndex);
 }
+
+// This is Brandon writing words
