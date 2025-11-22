@@ -94,6 +94,19 @@ p {
   margin-top: -1.7em;
 }
 
+.category-logos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-items: center;
+  text-align: center;
+  margin: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.category-logos a {
+  text-decoration: none;
+}
+
 /* utility classes */
 .highlight {
   color: var(--tertiary-color);
@@ -169,6 +182,14 @@ button {
 }
 
 /* Styles for product lists */
+.discount-deal {
+  background-color: black;
+  color: white;
+  width: 7rem;
+  text-align: center;
+  font-weight: 700;
+}
+
 .product-card {
   flex: 1 1 45%;
   margin: 0.25em;
@@ -201,6 +222,11 @@ button {
 
 .product-detail img {
   width: 100%;
+}
+
+.strike-through {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 
 /* Start cart list card styles */
