@@ -20,10 +20,10 @@ function renderCartContents() {
     }
   
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  // document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  productList.innerHTML = htmlItems.join("");
+    document.querySelector(".product-list").innerHTML = htmlItems.join("");
+    productList.innerHTML = htmlItems.join("");
 
-  document.querySelectorAll(".qty-input").forEach(input => {
+    document.querySelectorAll(".qty-input").forEach(input => {
     input.addEventListener("change", updateQuantity);
     });
 }
