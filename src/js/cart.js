@@ -26,6 +26,11 @@ function renderCartContents() {
     document.querySelectorAll(".qty-input").forEach(input => {
     input.addEventListener("change", updateQuantity);
     });
+
+    document.querySelectorAll(".remove-item").forEach(btn => {
+    btn.addEventListener("click", removeItem);
+  });
+    
 }
 
 
@@ -46,6 +51,8 @@ function cartItemTemplate(item) {
       <input type="number" min="1" value="${item.quantity}"
               data-id="${item.Id}" class="qty-input">
     </label>
+  <button class="remove-item" data-id="${item.Id}">✖</button>
+
   </div>
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
@@ -75,6 +82,27 @@ function updateQuantity(event) {
   renderCartContents();
 
 }
+
+//remove function
+function removeItem(event) {
+  const id = event.target.dataset.id;
+
+  let cart = getLocalStorage("so-cart") || [];
+
+  if (!Array.isArray(cart)) {
+    cart = [cart];
+  }
+
+  // Filtrar el producto fuera del carrito
+  cart = cart.filter(item => item.Id != id);
+
+  // Guardar el carrito actualizado
+  localStorage.setItem("so-cart", JSON.stringify(cart));
+
+  // Volver a renderizar
+  renderCartContents();
+}
+
 
 loadHeaderFooter();
 renderCartContents();
