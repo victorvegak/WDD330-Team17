@@ -9,10 +9,11 @@ function renderCartContents() {
 
   const productList = document.querySelector(".product-list");
   
-    if (!productList) {
-      console.error("no .product-list element found in cart.js")
-      return;
-    }
+    // if (!productList) {
+    //   console.error("no .product-list element found in cart.js")
+    //   return;
+  // }
+  
     // If cart is empty
     if (cartItems.length === 0) {
       productList.innerHTML = `<li class="cart-empty">Your cart is empty.</li>`;
