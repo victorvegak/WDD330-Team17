@@ -1,7 +1,6 @@
 import { loadHeaderFooter } from "./utils.mjs";
-import { CheckoutProcess } from "./checkout-process.mjs";
+import  CheckoutProcess  from "./checkout-process.mjs";
 
-loadHeaderFooter();
 
 const order = new CheckoutProcess("so-cart", ".checkout-summary");
 order.init();
@@ -17,3 +16,5 @@ document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
 
   order.checkout();
 });
+
+loadHeaderFooter();
