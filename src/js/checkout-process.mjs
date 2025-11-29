@@ -1,5 +1,5 @@
 import { getLocalStorage } from "./utils.mjs";
-import ExternalServices from "./external-services.mjs";
+import  ExternalServices  from "./external-services.mjs";
 
 const services = new ExternalServices();
 
@@ -10,6 +10,7 @@ function formDataToJSON(formElement) {
   formData.forEach((value, key) => {
     convertedJSON[key] = value;
   });
+
   return convertedJSON;
 }
 
@@ -23,6 +24,7 @@ function packageItems(items) {
       quantity: 1,
     };
   });
+
   return simplifiedItems;
 }
 

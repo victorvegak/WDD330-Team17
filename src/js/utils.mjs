@@ -66,6 +66,7 @@ export async function loadHeaderFooter() {
   renderWithTemplate(footerTemplate, footerIndex);
 }
 
+<<<<<<< HEAD
 export function alertMessage(message, scroll = true, duration = 3000) {
   const alert = document.createElement("div");
   alert.classList.add("alert");
@@ -92,3 +93,6 @@ export function removeAllAlerts() {
   const alerts = document.querySelectorAll(".alert");
   alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
+=======
+// This is Brandon writing words
+>>>>>>> main
