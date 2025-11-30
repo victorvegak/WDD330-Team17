@@ -15,10 +15,10 @@ function renderCartContents() {
   // }
   
     // If cart is empty
-    // if (cartItems.length === 0) {
-    //   productList.innerHTML = `<li class="cart-empty">Your cart is empty.</li>`;
-    //   return;
-    // }
+    if (cartItems.length === 0) {
+      productList.innerHTML = `<li class="cart-empty">Your cart is empty.</li>`;
+      return;
+    }
   
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
