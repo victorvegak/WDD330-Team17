@@ -2,25 +2,21 @@
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
 }
-// or a more concise version if you are into that sort of thing:
-// export const qs = (selector, parent = document) => parent.querySelector(selector);
 
-
-export function getParam(param){
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get(param)
-  return product 
+export function getParam(param) {
+  return new URLSearchParams(window.location.search).get(param);
 }
 
 // retrieve data from localstorage
 export function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
 }
+
 // save data to local storage
 export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
+
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
@@ -30,9 +26,15 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
-export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false) {
+export function renderListWithTemplate(
+  templateFn,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = false
+) {
   const htmlStrings = list.map(templateFn);
-  if (clear = true) {
+  if (clear) {
     parentElement.innerHTML = "";
   }
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
@@ -43,7 +45,6 @@ export function renderWithTemplate(template, parentElement, data, callback) {
   if (callback) {
     callback(data);
   }
-
 }
 
 async function loadTemplate(path) {
@@ -53,8 +54,9 @@ async function loadTemplate(path) {
 }
 
 export async function loadHeaderFooter() {
-  const headerPath = "../partials/header.html";
-  const footerPath = "../partials/footer.html";
+  const headerPath = "/partials/header.html";
+  const footerPath = "/partials/footer.html";
+
   const headerTemplate = await loadTemplate(headerPath);
   const footerTemplate = await loadTemplate(footerPath);
 
@@ -64,5 +66,3 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerIndex);
   renderWithTemplate(footerTemplate, footerIndex);
 }
-
-// This is Brandon writing words
