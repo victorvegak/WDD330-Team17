@@ -1,4 +1,4 @@
-import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, loadHeaderFooter } from "./utils.mjs";
 
 function renderCartContents() {
   let cartItems = getLocalStorage("so-cart") || [];
@@ -15,10 +15,10 @@ function renderCartContents() {
   // }
   
     // If cart is empty
-    if (cartItems.length === 0) {
-      productList.innerHTML = `<li class="cart-empty">Your cart is empty.</li>`;
-      return;
-    }
+    // if (cartItems.length === 0) {
+    //   productList.innerHTML = `<li class="cart-empty">Your cart is empty.</li>`;
+    //   return;
+    // }
   
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
@@ -28,7 +28,6 @@ function renderCartContents() {
     input.addEventListener("change", updateQuantity);
     });
 }
-
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
@@ -59,7 +58,7 @@ function updateQuantity(event) {
   const id = event.target.dataset.id;
 
   let cart = getLocalStorage("so-cart") || [];
-
+  
   if (!Array.isArray(cart)) {
     cart = [cart];
   }
@@ -75,6 +74,38 @@ function updateQuantity(event) {
 
   renderCartContents();
 
+}
+
+export function addToWishlist(product) {
+  let list = getLocalStorage("so-wishlist") || [];
+  const exists = list.find(item => item.Id === product.Id);
+
+  if (!exists) {
+    list.push(product);
+    setLocalStorage("so-wishlist", list);
+  }
+}
+
+export function moveWishlistToCart(productId) {
+  let wishlist = getLocalStorage("so-wishlist") || [];
+  let cart = getLocalStorage("so-cart") || [];
+
+  const item = wishlist.find(p => p.Id === productId);
+  if (!item) return;
+
+  // remove from wishlist
+  wishlist = wishlist.filter(p => p.Id !== productId);
+  setLocalStorage("so-wishlist", wishlist);
+
+  // add to cart or increment
+  const exists = cart.find(p => p.Id === item.Id);
+  if (exists) {
+    exists.Quantity++;
+  } else {
+    item.Quantity = 1;
+    cart.push(item);
+  }
+  setLocalStorage("so-cart", cart);
 }
 
 loadHeaderFooter();
