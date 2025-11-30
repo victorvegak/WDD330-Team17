@@ -4,12 +4,14 @@ import ProductDetails from "./ProductDetails.mjs";
 
 loadHeaderFooter();
 
-const category = getParam("category");
-const dataSource = new ProductData(category);
+
 const productID = getParam("product");
 
+
+const dataSource = new ProductData();
+
+
 const product = new ProductDetails(productID, dataSource);
+
+
 product.init();
-
-
-
